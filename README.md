@@ -13,6 +13,10 @@ conda install cuda=12.4
 pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorch.org/whl/cu124
 pip install -r requirements.txt
 ```
+Download scorer and refiner network weights.
+```shell
+python download_weights.py
+```
 Data should follow the structure:
 ```
 FOUNDATIONPOSE-IPD
@@ -40,12 +44,3 @@ FOUNDATIONPOSE-IPD
 ```shell
 python run_inference.py --dataset_dir Data/IPD --use_reconstructed_mesh 0 --mask_dir Data/IPD/ism_mask_sam6d.json --debug 1 --debug_dir debug --test_targets_path Data/IPD/test_targets_bop19.json
 ```
-
-<!-- ### 3. Results
-Here is an example detection with ISM segmentations and PEM detections concatenated with the original RGB image:
-<p align="center">
-  <img src="media/03_vis_ism_img1_obj11.png" width="960px">
-</p>
-<p align="center">
-  <img src="media/03_vis_pem_img1_obj11.png" width="960px">
-</p> -->
